@@ -1,0 +1,568 @@
+[
+    {
+        "id": "1ac2f0b3.5e7e0f",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "da716e1a.41cd7",
+        "type": "inject",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 220,
+        "y": 100,
+        "wires": [
+            [
+                "cce8c6f8.c509e8"
+            ]
+        ]
+    },
+    {
+        "id": "cce8c6f8.c509e8",
+        "type": "firebase.once",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "AC",
+        "firebaseconfig": "",
+        "childpath": "/devices/ac/status",
+        "repeatifnull": false,
+        "eventType": "value",
+        "queries": [],
+        "x": 430,
+        "y": 100,
+        "wires": [
+            [
+                "3ec1654e.004a6a"
+            ]
+        ]
+    },
+    {
+        "id": "3ec1654e.004a6a",
+        "type": "debug",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 830,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "85475286.530fc",
+        "type": "firebase.on",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "AC",
+        "firebaseconfig": "",
+        "childpath": "/devices/ac/status",
+        "atStart": true,
+        "eventType": "value",
+        "queries": [],
+        "x": 450,
+        "y": 180,
+        "wires": [
+            [
+                "3ec1654e.004a6a"
+            ]
+        ]
+    },
+    {
+        "id": "b1be57e3.395fd8",
+        "type": "firebase modify",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "Set AC",
+        "firebaseconfig": "",
+        "childpath": "/devices/ac/status",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 580,
+        "y": 300,
+        "wires": [
+            [
+                "3ec1654e.004a6a"
+            ]
+        ]
+    },
+    {
+        "id": "ef78200f.8457c",
+        "type": "inject",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 210,
+        "y": 260,
+        "wires": [
+            [
+                "6b9f9749.f03f78",
+                "d6afad25.2f6cd"
+            ]
+        ]
+    },
+    {
+        "id": "311d190.ff83fe6",
+        "type": "inject",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 210,
+        "y": 340,
+        "wires": [
+            [
+                "94a47936.5a9e98",
+                "d6afad25.2f6cd"
+            ]
+        ]
+    },
+    {
+        "id": "6b9f9749.f03f78",
+        "type": "ui_button",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "",
+        "group": "fceb30ff.5dc81",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "OFF",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "num",
+        "topic": "",
+        "x": 390,
+        "y": 260,
+        "wires": [
+            [
+                "b1be57e3.395fd8"
+            ]
+        ]
+    },
+    {
+        "id": "94a47936.5a9e98",
+        "type": "ui_button",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "",
+        "group": "fceb30ff.5dc81",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "ON",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "",
+        "x": 390,
+        "y": 340,
+        "wires": [
+            [
+                "b1be57e3.395fd8"
+            ]
+        ]
+    },
+    {
+        "id": "d6afad25.2f6cd",
+        "type": "ui_switch",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "AC Switch",
+        "label": "Relay1 Switch",
+        "tooltip": "",
+        "group": "fceb30ff.5dc81",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 390,
+        "y": 460,
+        "wires": [
+            [
+                "b1be57e3.395fd8"
+            ]
+        ]
+    },
+    {
+        "id": "9a206c1b.5001a",
+        "type": "inject",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 1120,
+        "y": 100,
+        "wires": [
+            [
+                "8bba01fd.f47a5"
+            ]
+        ]
+    },
+    {
+        "id": "8bba01fd.f47a5",
+        "type": "firebase.once",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "LED",
+        "firebaseconfig": "",
+        "childpath": "/devices/led/status",
+        "repeatifnull": false,
+        "eventType": "value",
+        "queries": [],
+        "x": 1330,
+        "y": 100,
+        "wires": [
+            [
+                "f336c3e.42def4"
+            ]
+        ]
+    },
+    {
+        "id": "f336c3e.42def4",
+        "type": "debug",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1730,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "fbbb30fe.6883c",
+        "type": "firebase.on",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "LED",
+        "firebaseconfig": "",
+        "childpath": "/devices/led/status",
+        "atStart": true,
+        "eventType": "value",
+        "queries": [],
+        "x": 1350,
+        "y": 180,
+        "wires": [
+            [
+                "f336c3e.42def4"
+            ]
+        ]
+    },
+    {
+        "id": "64eace45.ed4a3",
+        "type": "firebase modify",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "Set LED",
+        "firebaseconfig": "",
+        "childpath": "/devices/led/status",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 1480,
+        "y": 300,
+        "wires": [
+            [
+                "f336c3e.42def4"
+            ]
+        ]
+    },
+    {
+        "id": "446cd1b5.9a9af",
+        "type": "ui_button",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "",
+        "group": "fceb30ff.5dc81",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "OFF",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "num",
+        "topic": "",
+        "x": 1290,
+        "y": 260,
+        "wires": [
+            [
+                "64eace45.ed4a3"
+            ]
+        ]
+    },
+    {
+        "id": "d3f7023b.3edba",
+        "type": "ui_button",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "",
+        "group": "fceb30ff.5dc81",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "ON",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "",
+        "x": 1290,
+        "y": 340,
+        "wires": [
+            [
+                "64eace45.ed4a3"
+            ]
+        ]
+    },
+    {
+        "id": "a0a0f3c.192481",
+        "type": "ui_switch",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "LED Switch",
+        "label": "Relay1 Switch",
+        "tooltip": "",
+        "group": "fceb30ff.5dc81",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 1290,
+        "y": 460,
+        "wires": [
+            [
+                "64eace45.ed4a3"
+            ]
+        ]
+    },
+    {
+        "id": "40299fa.e60916",
+        "type": "inject",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "OFF",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 1090,
+        "y": 260,
+        "wires": [
+            [
+                "446cd1b5.9a9af"
+            ]
+        ]
+    },
+    {
+        "id": "5758eadf.352174",
+        "type": "inject",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "ON",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 1090,
+        "y": 340,
+        "wires": [
+            [
+                "d3f7023b.3edba"
+            ]
+        ]
+    },
+    {
+        "id": "e980edae.e719d",
+        "type": "inject",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "AC debug in",
+        "topic": "switch-ac",
+        "payload": "3ec1654e.004a6a",
+        "payloadType": "flow",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 190,
+        "y": 580,
+        "wires": [
+            [
+                "2a70f0c0.f31a7",
+                "f0720af8.4824d8"
+            ]
+        ]
+    },
+    {
+        "id": "2a70f0c0.f31a7",
+        "type": "mqtt out",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "AC mqtt out",
+        "topic": "switch-ac",
+        "qos": "2",
+        "retain": "true",
+        "broker": "187353d7.68bd8c",
+        "x": 490,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "f0720af8.4824d8",
+        "type": "debug",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 480,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "9616f3ed.bb90d",
+        "type": "inject",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "LED debug in",
+        "topic": "switch-led",
+        "payload": "f336c3e.42def4",
+        "payloadType": "flow",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 1090,
+        "y": 580,
+        "wires": [
+            [
+                "c0f39a52.4e6d08",
+                "ed42ad77.629c6"
+            ]
+        ]
+    },
+    {
+        "id": "c0f39a52.4e6d08",
+        "type": "mqtt out",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "LED mqtt out",
+        "topic": "switch-led",
+        "qos": "2",
+        "retain": "true",
+        "broker": "187353d7.68bd8c",
+        "x": 1390,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "ed42ad77.629c6",
+        "type": "debug",
+        "z": "1ac2f0b3.5e7e0f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1380,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "fceb30ff.5dc81",
+        "type": "ui_group",
+        "z": "",
+        "name": "Relay1 Control",
+        "tab": "7182f39e.04ab8c",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "187353d7.68bd8c",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "MQTT",
+        "broker": "localhost",
+        "port": "1880",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "7182f39e.04ab8c",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home Automation",
+        "icon": "dashboard",
+        "order": 1
+    }
+]
