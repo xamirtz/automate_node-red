@@ -11,10 +11,10 @@ void loop() {
   s = "";
   if (Serial.available()) {
     s = Serial.readString();
-    if(s=="true"){
+    if(s=="led:true"){
       digitalWrite(LED, HIGH);  
     }
-    if(s=="false"){
+    if(s=="led:false"){
       digitalWrite(LED, LOW);
     }
   }
