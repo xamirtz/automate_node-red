@@ -29,7 +29,7 @@
         "console": false,
         "tostatus": false,
         "complete": "payload",
-        "x": 490,
+        "x": 650,
         "y": 160,
         "wires": []
     },
@@ -47,9 +47,9 @@
         "y": 80,
         "wires": [
             [
-                "890cdbe3.078cc8",
                 "e5e22cf8.f8685",
-                "25504b5b.9f2624"
+                "f81ca046.311f3",
+                "e8841a4f.9209d8"
             ]
         ]
     },
@@ -151,9 +151,41 @@
         "z": "8df63dd3.e727e",
         "name": "",
         "serial": "67f76c0b.785c64",
-        "x": 470,
+        "x": 650,
         "y": 80,
         "wires": []
+    },
+    {
+        "id": "f81ca046.311f3",
+        "type": "function",
+        "z": "8df63dd3.e727e",
+        "name": "Add device name",
+        "func": "\nreturn {payload:\"led:\"+msg.payload};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 370,
+        "y": 160,
+        "wires": [
+            [
+                "890cdbe3.078cc8"
+            ]
+        ]
+    },
+    {
+        "id": "e8841a4f.9209d8",
+        "type": "function",
+        "z": "8df63dd3.e727e",
+        "name": "Add device name",
+        "func": "\nreturn {payload:\"led:\"+msg.payload};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 450,
+        "y": 80,
+        "wires": [
+            [
+                "25504b5b.9f2624"
+            ]
+        ]
     },
     {
         "id": "cb6cf9e5.2213c8",
