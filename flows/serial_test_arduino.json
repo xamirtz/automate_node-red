@@ -1,0 +1,195 @@
+[
+    {
+        "id": "8df63dd3.e727e",
+        "type": "tab",
+        "label": "flow.main",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "e5e22cf8.f8685",
+        "type": "mqtt out",
+        "z": "8df63dd3.e727e",
+        "name": "auto/ac@AC-pin",
+        "topic": "'auto/ac'",
+        "qos": "1",
+        "retain": "false",
+        "broker": "cb6cf9e5.2213c8",
+        "x": 460,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "890cdbe3.078cc8",
+        "type": "debug",
+        "z": "8df63dd3.e727e",
+        "name": "firebase.out@/devices/0/status/",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 490,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "76cb9637.34e528",
+        "type": "firebase.on",
+        "z": "8df63dd3.e727e",
+        "name": "firebase.out@/devices/0/status/",
+        "firebaseconfig": "",
+        "childpath": "/devices/0/status",
+        "atStart": true,
+        "eventType": "value",
+        "queries": [],
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "890cdbe3.078cc8",
+                "e5e22cf8.f8685",
+                "25504b5b.9f2624"
+            ]
+        ]
+    },
+    {
+        "id": "f7e499cb.3f7078",
+        "type": "mqtt out",
+        "z": "8df63dd3.e727e",
+        "name": "auto/tubelight@Tubelight-pin",
+        "topic": "'auto/tubelight'",
+        "qos": "1",
+        "retain": "false",
+        "broker": "cb6cf9e5.2213c8",
+        "x": 480,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "12e07ee0.a4be91",
+        "type": "debug",
+        "z": "8df63dd3.e727e",
+        "name": "firebase.out@/devices/2/status/",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 490,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "9c0c9f07.9c91a",
+        "type": "firebase.on",
+        "z": "8df63dd3.e727e",
+        "name": "firebase.out@/devices/2/status/",
+        "firebaseconfig": "",
+        "childpath": "/devices/2/status",
+        "atStart": true,
+        "eventType": "value",
+        "queries": [],
+        "x": 170,
+        "y": 420,
+        "wires": [
+            [
+                "12e07ee0.a4be91",
+                "f7e499cb.3f7078"
+            ]
+        ]
+    },
+    {
+        "id": "19499329.52694d",
+        "type": "mqtt out",
+        "z": "8df63dd3.e727e",
+        "name": "auto/led@LED-pin",
+        "topic": "'auto/led'",
+        "qos": "1",
+        "retain": "false",
+        "broker": "cb6cf9e5.2213c8",
+        "x": 470,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "9fc4cdca.4dddc",
+        "type": "debug",
+        "z": "8df63dd3.e727e",
+        "name": "firebase.out@/devices/1/status/",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 490,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "78f215a6.54632c",
+        "type": "firebase.on",
+        "z": "8df63dd3.e727e",
+        "name": "firebase.out@/devices/1/status/",
+        "firebaseconfig": "",
+        "childpath": "/devices/1/status",
+        "atStart": true,
+        "eventType": "value",
+        "queries": [],
+        "x": 170,
+        "y": 220,
+        "wires": [
+            [
+                "9fc4cdca.4dddc",
+                "19499329.52694d"
+            ]
+        ]
+    },
+    {
+        "id": "25504b5b.9f2624",
+        "type": "serial out",
+        "z": "8df63dd3.e727e",
+        "name": "",
+        "serial": "67f76c0b.785c64",
+        "x": 470,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "cb6cf9e5.2213c8",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "test-client",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "67f76c0b.785c64",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "COM3",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": false,
+        "responsetimeout": "10000"
+    }
+]
