@@ -62,7 +62,7 @@
         "retain": "false",
         "broker": "8ebb2cac.09bf4",
         "x": 500,
-        "y": 440,
+        "y": 320,
         "wires": []
     },
     {
@@ -76,7 +76,7 @@
         "tostatus": false,
         "complete": "payload",
         "x": 510,
-        "y": 520,
+        "y": 400,
         "wires": []
     },
     {
@@ -90,7 +90,7 @@
         "eventType": "value",
         "queries": [],
         "x": 170,
-        "y": 480,
+        "y": 360,
         "wires": [
             [
                 "62e46f5f.52f2d",
@@ -108,7 +108,7 @@
         "retain": "false",
         "broker": "8ebb2cac.09bf4",
         "x": 470,
-        "y": 240,
+        "y": 180,
         "wires": []
     },
     {
@@ -122,7 +122,7 @@
         "tostatus": false,
         "complete": "payload",
         "x": 510,
-        "y": 320,
+        "y": 260,
         "wires": []
     },
     {
@@ -136,7 +136,7 @@
         "eventType": "value",
         "queries": [],
         "x": 170,
-        "y": 280,
+        "y": 220,
         "wires": [
             [
                 "d38b5b39.5e2fe8",
@@ -154,7 +154,7 @@
         "retain": "false",
         "broker": "8ebb2cac.09bf4",
         "x": 500,
-        "y": 620,
+        "y": 460,
         "wires": []
     },
     {
@@ -168,7 +168,7 @@
         "tostatus": false,
         "complete": "payload",
         "x": 510,
-        "y": 700,
+        "y": 540,
         "wires": []
     },
     {
@@ -182,7 +182,7 @@
         "eventType": "value",
         "queries": [],
         "x": 170,
-        "y": 660,
+        "y": 500,
         "wires": [
             [
                 "6e807ae8.92d244",
@@ -200,7 +200,7 @@
         "retain": "false",
         "broker": "8ebb2cac.09bf4",
         "x": 490,
-        "y": 800,
+        "y": 600,
         "wires": []
     },
     {
@@ -214,7 +214,7 @@
         "tostatus": false,
         "complete": "payload",
         "x": 510,
-        "y": 880,
+        "y": 680,
         "wires": []
     },
     {
@@ -228,7 +228,7 @@
         "eventType": "value",
         "queries": [],
         "x": 170,
-        "y": 840,
+        "y": 640,
         "wires": [
             [
                 "d1104f15.f6fd4",
