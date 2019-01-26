@@ -62,7 +62,7 @@
         "retain": "false",
         "broker": "8ebb2cac.09bf4",
         "x": 500,
-        "y": 320,
+        "y": 440,
         "wires": []
     },
     {
@@ -76,7 +76,7 @@
         "tostatus": false,
         "complete": "payload",
         "x": 510,
-        "y": 400,
+        "y": 520,
         "wires": []
     },
     {
@@ -90,7 +90,7 @@
         "eventType": "value",
         "queries": [],
         "x": 170,
-        "y": 360,
+        "y": 480,
         "wires": [
             [
                 "62e46f5f.52f2d",
@@ -108,7 +108,7 @@
         "retain": "false",
         "broker": "8ebb2cac.09bf4",
         "x": 470,
-        "y": 180,
+        "y": 240,
         "wires": []
     },
     {
@@ -122,7 +122,7 @@
         "tostatus": false,
         "complete": "payload",
         "x": 510,
-        "y": 260,
+        "y": 320,
         "wires": []
     },
     {
@@ -136,11 +136,103 @@
         "eventType": "value",
         "queries": [],
         "x": 170,
-        "y": 220,
+        "y": 280,
         "wires": [
             [
                 "d38b5b39.5e2fe8",
                 "63857981.de1ea8"
+            ]
+        ]
+    },
+    {
+        "id": "e0e5e24d.cdf7c",
+        "type": "mqtt out",
+        "z": "930439c0.bc4528",
+        "name": "auto/tubelight@Heater-pin",
+        "topic": "'auto/heater'",
+        "qos": "1",
+        "retain": "false",
+        "broker": "8ebb2cac.09bf4",
+        "x": 500,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "6e807ae8.92d244",
+        "type": "debug",
+        "z": "930439c0.bc4528",
+        "name": "firebase.out@/devices/3/status/",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 510,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "a399345c.563e68",
+        "type": "firebase.on",
+        "z": "930439c0.bc4528",
+        "name": "firebase.out@/devices/3/status/",
+        "firebaseconfig": "",
+        "childpath": "/devices/3/status",
+        "atStart": true,
+        "eventType": "value",
+        "queries": [],
+        "x": 170,
+        "y": 660,
+        "wires": [
+            [
+                "6e807ae8.92d244",
+                "e0e5e24d.cdf7c"
+            ]
+        ]
+    },
+    {
+        "id": "73ee2df1.663d24",
+        "type": "mqtt out",
+        "z": "930439c0.bc4528",
+        "name": "auto/tubelight@Fan-pin",
+        "topic": "'auto/fan'",
+        "qos": "1",
+        "retain": "false",
+        "broker": "8ebb2cac.09bf4",
+        "x": 490,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "d1104f15.f6fd4",
+        "type": "debug",
+        "z": "930439c0.bc4528",
+        "name": "firebase.out@/devices/4/status/",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 510,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "fcc302bc.7d9f2",
+        "type": "firebase.on",
+        "z": "930439c0.bc4528",
+        "name": "firebase.out@/devices/4/status/",
+        "firebaseconfig": "",
+        "childpath": "/devices/4/status",
+        "atStart": true,
+        "eventType": "value",
+        "queries": [],
+        "x": 170,
+        "y": 840,
+        "wires": [
+            [
+                "d1104f15.f6fd4",
+                "73ee2df1.663d24"
             ]
         ]
     },
