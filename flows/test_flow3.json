@@ -1,0 +1,123 @@
+[
+    {
+        "id": "2aee1ff4.d9aad",
+        "type": "tab",
+        "label": "flow.main",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "fbf2920.0c0947",
+        "type": "mqtt out",
+        "z": "2aee1ff4.d9aad",
+        "name": "auto/ac@AC-pin",
+        "topic": "'auto/ac'",
+        "qos": "1",
+        "retain": "false",
+        "broker": "18227556.a174ab",
+        "x": 460,
+        "y": 233,
+        "wires": []
+    },
+    {
+        "id": "6fc03cf1.4b16a4",
+        "type": "debug",
+        "z": "2aee1ff4.d9aad",
+        "name": "firebase.out@/devices/1/status/",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 510,
+        "y": 313,
+        "wires": []
+    },
+    {
+        "id": "96fddfed.6ef66",
+        "type": "firebase.on",
+        "z": "2aee1ff4.d9aad",
+        "name": "firebase.out@/devices/1/status/",
+        "firebaseconfig": "",
+        "childpath": "/devices/CclwOU7oCdXvG6oeQJPylkrERH83/LYPXn8P0eN0UnvRgznn/status",
+        "atStart": true,
+        "eventType": "value",
+        "queries": [],
+        "x": 170,
+        "y": 273,
+        "wires": [
+            [
+                "6fc03cf1.4b16a4",
+                "fbf2920.0c0947"
+            ]
+        ]
+    },
+    {
+        "id": "6de86f89.cdb25",
+        "type": "mqtt out",
+        "z": "2aee1ff4.d9aad",
+        "name": "auto/led@LED-pin",
+        "topic": "'auto/led'",
+        "qos": "1",
+        "retain": "false",
+        "broker": "18227556.a174ab",
+        "x": 470,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "e012de4d.da726",
+        "type": "debug",
+        "z": "2aee1ff4.d9aad",
+        "name": "firebase.out@/devices/0/status/",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 510,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "37886375.ada07c",
+        "type": "firebase.on",
+        "z": "2aee1ff4.d9aad",
+        "name": "firebase.out@/devices/0/status/",
+        "firebaseconfig": "",
+        "childpath": "/devices/CclwOU7oCdXvG6oeQJPylkrERH83/LYNKhgeKB-zGmSUq8C0/status",
+        "atStart": true,
+        "eventType": "value",
+        "queries": [],
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "e012de4d.da726",
+                "6de86f89.cdb25"
+            ]
+        ]
+    },
+    {
+        "id": "18227556.a174ab",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "test-client",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    }
+]
